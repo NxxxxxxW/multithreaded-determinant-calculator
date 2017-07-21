@@ -23,4 +23,17 @@ Calculates determinant of input matrix using threads
 ```
 Use the debug versions for more verbose output
 
-Compile with `make` 
+Compile with `make x`, 
+```
+	x => '' ie 'make' will make the verbose debug version
+	x => 'clean' ie 'make clean' will compile to only output the final determinant
+	x => 'hack' ie 'make hack' will compile to take a shortcut if the cofactor of a matrix is 0. 
+		This option impacts the threading, making threads not necessarily do equal work, but it allows
+		one to calculate larger matrices.
+```
+
+##timer script
+Times how long it takes to calculate the determinant of n=4, 8, and 12 matrices using 1, 2, and 4 threads
+```
+	time.sh
+```
