@@ -23,4 +23,4 @@ main-debug.o: main.c determinants.h
 	gcc -c main.c -pthread -lm -o main-debug.o -D DEBUG
 	
 matrix-generator: matrix-generator.c
-	gcc -lm -o matrix-generator matrix-generator.c
+	gcc -o matrix-generator matrix-generator.c -lm
