@@ -1,8 +1,8 @@
 # multithreaded-determinant-calculator
 A toy for calculating determinants with threads
 
-##Usage
-###matrix-generator
+## Usage
+### matrix-generator
 Generate NxN matrices with matrix-generator
 ```
 	matrix-generator n modifier [srand] > output
@@ -16,7 +16,7 @@ srand => if there is a particular seed, otherwise it will just use current time
 output => output file for the generated matrix
 
 
-###determinant
+### determinant
 Calculates determinant of input matrix using threads
 ```
 	determinant input.txt #threads
@@ -32,7 +32,7 @@ Compile with `make x`,
 		one to calculate larger matrices.
 ```
 
-###timer script
+### timer script
 Times how long it takes to calculate the determinant of n=4, 8, and 12 matrices using 1, 2, and 4 threads
 ```
 	time.sh
