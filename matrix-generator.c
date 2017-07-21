@@ -28,7 +28,6 @@ int main(int argc, char** argv) {
 			float_num /= 1000;
 			float_num = round(float_num);
 			fprintf(stdout, "%d ", (int)float_num);
-			sum += (int)float_num;
 		}
 		fprintf(stdout, "\n");
 	}
