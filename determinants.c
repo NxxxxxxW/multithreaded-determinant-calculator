@@ -100,6 +100,9 @@ long determinant_nonthreaded(struct nMatrix *m) {
 
 long getcofactor(int i, int j, int a, struct nMatrix *m) {
 	
+	#ifdef ZERO
+	if (a == 0) return 0;
+	#endif
 	
 	struct nMatrix *u = submatrix_copy(m, i, 0);
 	
