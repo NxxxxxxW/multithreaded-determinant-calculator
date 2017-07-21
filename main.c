@@ -12,6 +12,7 @@ int main(int argc, char **argv) {
 	}
 	
 	struct nMatrix* m = loadmatrix(argv[1]);
+	
 	num_of_threads = atoi(argv[2]);
 	
 	#ifdef DEBUG	
@@ -27,6 +28,12 @@ int main(int argc, char **argv) {
 struct nMatrix* loadmatrix(char *filename) {
 	
 	FILE *matrixfile = fopen(filename, "r");
+	
+	if (matrixfile == NULL) {
+		perror("Couldn't open file\n");
+		exit(-1);
+	}
+	
 	int i, j, k, n;
 	
 	if (fscanf(matrixfile, " %d", &(n)) == 0) {
@@ -40,11 +47,6 @@ struct nMatrix* loadmatrix(char *filename) {
 	#ifdef DEBUG
 		fprintf(stdout, "Preparing to load a %dx%d matrix...\n", n, n);
 	#endif
-	
-	m->matrix = (int**)malloc(n * sizeof(int*));
-	for (i = 0; i < n; i++) {
-		m->matrix[i] = (int*)malloc(n * sizeof(int));
-	}
 	
 	for (i = 0; i < n; i++) {		
 		for (j = 0; j < n; j++) {	

@@ -54,13 +54,18 @@ long determinant_threaded_setup(struct nMatrix* m) {
 		fprintf(stderr, "Thread %d returned determinant %ld\n", i, *(long*)returnValue);
 		#endif
 		joined_determinant += *(long*)returnValue;
+		free(returnValue);
 	}
+	
+	free(pth);
+	
 	return joined_determinant;
 }
 
 void *determinant_threaded(void *arg) {
 	struct matrixthread *t = (struct matrixthread*)arg;
 	long *det = malloc(sizeof(long));
+	*det = 0;
 	int i;
 	
 	for (i = t->start; i < t->end; i++) {
@@ -94,6 +99,7 @@ long determinant_nonthreaded(struct nMatrix *m) {
 } 
 
 long getcofactor(int i, int j, int a, struct nMatrix *m) {
+	
 	
 	struct nMatrix *u = submatrix_copy(m, i, 0);
 	
