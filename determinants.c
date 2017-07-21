@@ -24,7 +24,7 @@ long determinant_threaded_setup(struct nMatrix* m) {
 	long joined_determinant = 0;
 	
 	#ifdef DEBUG
-	fprintf(stderr, "parition size: %d\n", partition);
+	fprintf(stderr, "partition size: %d\n", partition);
 	#endif
 	
 	for (i = num_of_threads-1; i >= 0; i--) {
