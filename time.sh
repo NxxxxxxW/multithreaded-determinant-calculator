@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for n in 4 8 12 16
+for n in 4 8 12
 do
 	echo "$n x $n with seed 31"
 	./matrix-generator $n 1 31 > $n.txt
